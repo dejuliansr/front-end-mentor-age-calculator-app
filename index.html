@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+    <title>Frontend Mentor | Age calculator app</title>
+    <link href="css/output.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/global.css">
+  </head>
+  <body>
+    <main class=" bg-Off-white flex items-center justify-center p-4 min-h-screen">
+      <div class="bg-white p-10 rounded-3xl rounded-br-[120px] shadow-lg max-w-xl w-full">
+        <!-- Input Fields -->
+        <div class="flex gap-4">
+          <div>
+            <label
+              for="day"
+              class="block text-Smokey-grey text-xs font-bold mb-1 tracking-[3px]"
+              >DAY</label
+            >
+            <input
+              id="day"
+              type="number"
+              placeholder="DD"
+              class="w-full border border-Light-grey rounded-lg p-2 text-lg md:text-3xl font-bold focus:outline-none focus:ring-1 focus:ring-Purple"
+            />
+          </div>
+          <div>
+            <label
+              for="month"
+              class="block text-Smokey-grey text-xs font-bold mb-1 tracking-[3px]"
+              >MONTH</label
+            >
+            <input
+              id="month"
+              type="number"
+              placeholder="MM"
+              class="w-full border border-Light-grey rounded-lg p-2 text-lg md:text-3xl font-bold focus:outline-none focus:ring-1 focus:ring-Purple"
+            />
+          </div>
+          <div>
+            <label
+              for="year"
+              class="block text-Smokey-grey text-xs font-bold mb-1 tracking-[3px]"
+              >YEAR</label
+            >
+            <input
+              id="year"
+              type="number"
+              placeholder="YYYY"
+              class="w-full border border-Light-grey rounded-lg p-2 text-lg md:text-3xl font-bold focus:outline-none focus:ring-1 focus:ring-Purple"
+            />
+          </div>
+        </div>
+  
+        <!-- Button -->
+        <div class="flex justify-center md:justify-end mt-6">
+          <button
+            id="calculateBtn"
+            class="bg-Purple hover:bg-Off-black text-white font-bold py-2 px-4 rounded-full w-16 h-16"
+          >
+            <img src="assets/images/icon-arrow.svg" alt="arrow" class="">
+          </button>
+        </div>
+  
+        <!-- Results -->
+        <div
+          id="result"
+          class="mt-6 text-xl md:text-3xl font-bold italic text-black"
+        >
+          <p class="text-Off-black text-5xl md:text-6xl font-black">
+            <span id="years" class="text-Purple">--</span> years
+          </p>
+          <p class="text-Off-black text-5xl md:text-6xl font-black">
+            <span id="months" class="text-Purple">--</span> months
+          </p>
+          <p class="text-Off-black text-5xl md:text-6xl font-black">
+            <span id="days" class="text-Purple">--</span> days
+          </p>
+        </div>
+      </div>
+    </main>
+
+    <script src="index.js"></script>
+  </body>
+</html>
