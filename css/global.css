@@ -15,3 +15,14 @@ input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none; /* Chrome, Safari, Edge, Opera */
   margin: 0; /* Hilangkan margin default */
 }
+
+.slide-down {
+  transform: translateY(-50px);
+  opacity: 0;
+  transition: transform 1s ease, opacity 1s ease;
+}
+
+.slide-down.active {
+  transform: translateY(0);
+  opacity: 1;
+}

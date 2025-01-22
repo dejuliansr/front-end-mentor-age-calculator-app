@@ -71,10 +71,34 @@ document.getElementById("calculateBtn").addEventListener("click", function () {
     ageMonths += 12;
   }
 
-  document.getElementById("years").textContent = ageYears;
-  document.getElementById("months").textContent = ageMonths;
-  document.getElementById("days").textContent = ageDays;
+  // Tampilkan hasil
+  const yearsElement = document.getElementById("years");
+  const monthsElement = document.getElementById("months");
+  const daysElement = document.getElementById("days");
+
+  animateCountUp(yearsElement, ageYears);
+  animateCountUp(monthsElement, ageMonths);
+  animateCountUp(daysElement, ageDays);
+
+  dayInput.value = "";
+  monthInput.value = "";
+  yearInput.value = "";
 });
+
+function animateCountUp(element, endValue, duration = 1000) {
+  const startValue = 0;
+  const increment = endValue / (duration / 10); // Naik setiap 10ms
+  let currentValue = startValue;
+
+  const timer = setInterval(() => {
+    currentValue += increment;
+    if (currentValue >= endValue) {
+      currentValue = endValue;
+      clearInterval(timer);
+    }
+    element.textContent = Math.floor(currentValue); // Tampilkan angka yang dihitung
+  }, 10);
+}
 
 // Fungsi untuk memeriksa apakah tanggal valid
 function isValidDate(day, month, year) {
@@ -108,3 +132,25 @@ function showError(inputElement, message) {
 function getLabel(inputElement) {
   return document.querySelector(`label[for="${inputElement.id}"]`);
 }
+
+// Seleksi semua elemen yang ingin dianimasikan
+const slideDownElements = document.querySelectorAll('.slide-down');
+
+// Buat Intersection Observer
+const observer = new IntersectionObserver(
+  (entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Tambahkan delay dengan interval waktu untuk animasi
+        setTimeout(() => {
+          entry.target.classList.add('active');
+        }, index * 200); // 200ms adalah jeda antara elemen
+        observer.unobserve(entry.target); // Hentikan pengamatan elemen setelah animasi
+      }
+    });
+  },
+  { threshold: 0.4 }
+);
+
+// Tambahkan elemen ke observer
+slideDownElements.forEach((el) => observer.observe(el));

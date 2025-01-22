@@ -13,7 +13,7 @@
       <div class="bg-white p-10 rounded-3xl rounded-br-[120px] shadow-lg max-w-xl w-full">
         <!-- Input Fields -->
         <div class="flex gap-4">
-          <div>
+          <div class="slide-down">
             <label
               for="day"
               class="block text-Smokey-grey text-xs font-bold mb-1 tracking-[3px]"
@@ -26,7 +26,7 @@
               class="w-full border border-Light-grey rounded-lg p-2 text-lg md:text-3xl font-bold focus:outline-none focus:ring-1 focus:ring-Purple"
             />
           </div>
-          <div>
+          <div class="slide-down">
             <label
               for="month"
               class="block text-Smokey-grey text-xs font-bold mb-1 tracking-[3px]"
@@ -39,7 +39,7 @@
               class="w-full border border-Light-grey rounded-lg p-2 text-lg md:text-3xl font-bold focus:outline-none focus:ring-1 focus:ring-Purple"
             />
           </div>
-          <div>
+          <div class="slide-down">
             <label
               for="year"
               class="block text-Smokey-grey text-xs font-bold mb-1 tracking-[3px]"
@@ -55,7 +55,7 @@
         </div>
   
         <!-- Button -->
-        <div class="flex justify-center md:justify-end mt-6">
+        <div class="flex justify-center md:justify-end mt-6 slide-down">
           <button
             id="calculateBtn"
             class="bg-Purple hover:bg-Off-black text-white font-bold py-2 px-4 rounded-full w-16 h-16"
@@ -69,13 +69,13 @@
           id="result"
           class="mt-6 text-xl md:text-3xl font-bold italic text-black"
         >
-          <p class="text-Off-black text-5xl md:text-6xl font-black">
+          <p class="text-Off-black text-5xl md:text-6xl font-black slide-down opacity-0 transition-opacity duration-500">
             <span id="years" class="text-Purple">--</span> years
           </p>
-          <p class="text-Off-black text-5xl md:text-6xl font-black">
+          <p class="text-Off-black text-5xl md:text-6xl font-black slide-down">
             <span id="months" class="text-Purple">--</span> months
           </p>
-          <p class="text-Off-black text-5xl md:text-6xl font-black">
+          <p class="text-Off-black text-5xl md:text-6xl font-black slide-down">
             <span id="days" class="text-Purple">--</span> days
           </p>
         </div>
