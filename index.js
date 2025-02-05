@@ -1,10 +1,35 @@
 
 document.addEventListener("DOMContentLoaded", () => {
-  document.getElementById("calculateBtn").addEventListener("click", function () {
-    const dayInput = document.getElementById("day");
-    const monthInput = document.getElementById("month");
-    const yearInput = document.getElementById("year");
+  const dayInput = document.getElementById("day");
+  const monthInput = document.getElementById("month");
+  const yearInput = document.getElementById("year");
+
+  function handleInput(e, nextInput, maxLength) {
+    if (e.target.value.length >= maxLength) {
+      e.target.value = e.target.value.slice(0, maxLength); // Batasi panjang input
+      if (nextInput) {
+        nextInput.focus(); // Pindah ke input berikutnya
+      }
+    }
+  }
+
+  // Tambahkan event listener untuk input setelah DOM dimuat, bukan saat tombol ditekan
+  dayInput.addEventListener("input", (e) => handleInput(e, monthInput, 2));
+  monthInput.addEventListener("input", (e) => handleInput(e, yearInput, 2));
+  yearInput.addEventListener("input", (e) => handleInput(e, null, 4));
+
+  [dayInput, monthInput, yearInput].forEach((input) => {
+    input.addEventListener("keypress", (e) => {
+      if (!/[0-9]/.test(e.key)) {
+        e.preventDefault(); // Mencegah karakter non-angka
+      }
+      if (e.key === "Enter") {
+        calculateBtn.click(); // Simulasikan klik tombol Calculate
+      }
+    });
+  });
   
+  document.getElementById("calculateBtn").addEventListener("click", function () {
     const day = parseInt(dayInput.value);
     const month = parseInt(monthInput.value);
     const year = parseInt(yearInput.value);
